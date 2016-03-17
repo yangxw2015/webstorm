@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="con2_qhd_3">
+    <ul>
+        <li><a href="#">欢迎111111111111</a></li>
+        <li><a href="#">欢迎22222222222</a></li>
+        <li><a href="#">欢迎333333333333</a></li>
+        <li><a href="#">欢迎4444444444444</a></li>
+        <li><a href="#">欢迎5555555555</a></li>
+        <li><a href="#">欢迎66666666666666</a></li>
+    </ul>
+</div>
+<script src="../../js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+    function AutoScroll(obj) {
+        $(obj).find("ul:first").animate({
+            marginTop: "-25px"
+        }, 500, function () {
+            $(this).css({ marginTop: "0px" }).find("li:first").appendTo(this);
+        });
+    }
+    $(document).ready(function () {
+        var myar = setInterval('AutoScroll("#con2_qhd_3")', 1000);
+        //当鼠标放上去的时候，滚动停止，鼠标离开的时候滚动开始
+        $("#con2_qhd_3").hover(function () { clearInterval(myar); }, function () { myar = setInterval('AutoScroll("#con2_qhd_3")', 1000) });
+    });
+</script>
+</body>
+</html>

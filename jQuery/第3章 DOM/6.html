@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>超链接提示效果</title>
+    <style type="text/css">
+        .bg{
+            width: 500px;
+            height: 300px;
+            background: #CCCCCC;
+            cursor: pointer;
+        }
+
+        #tooltip{
+            position:absolute;
+            border:1px solid #333;
+            background:#f7f5d1;
+            padding:1px;
+            color:#333;
+            display:none;
+        }
+    </style>
+</head>
+<body>
+<p><a href="" class="tooltip" title="这是我的超链接提示1">提示一</a></p>
+
+<p><a href="" class="tooltip" title="这是我的超链接提示2">提示二</a></p>
+
+<p><a href="" title="这是自带提示1">自带提示1</a></p>
+
+<p><a href="" title="这是自带提示2">自带提示2</a></p>
+<div class="bg"></div>
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script>
+    $(function () {
+        var x = 10, y = 20;
+        $("a.tooltip").mouseover(function (e) {
+            this.myTitle = this.title;
+            this.title = "";
+            var tooltip = '<div id="tooltip">this.title</div>';
+            $("body").append(tooltip);
+            $("#tooltip").css({
+                "top": (e.pageY + y) + "px",
+                "left": (e.pageX +   x) + "px"
+            }).show('fast'); //设置x，y坐标并显示
+        }).mouseout(function () {
+            this.title = this.myTitle;
+            $("#tooltip").remove();//移除
+        }).mousemove(function (e) {
+            $("#tooltip").css({
+                "top": (e.pageY + y) + "px",
+                "left": (e.pageX + x) + "px"
+            })
+        })
+        /*$(".bg").mousemove(function(e){
+            var bgX= e.pageX;
+            var bgY= e.pageY;
+            console.log(bgX);
+            console.log(bgY);
+        })*/
+
+    })
+</script>
+</body>
+</html>

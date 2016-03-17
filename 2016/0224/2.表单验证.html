@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        html,body,div{
+            margin: 0;
+            padding: 0;
+        }
+        .space{
+            height: 25px;
+            clear: both;
+        }
+        .username{
+            width: 250px;
+            height: 25px;
+        }
+
+    </style>
+</head>
+<body>
+
+<form id="testform">
+    <input type="text" placeholder="请输入用户名"/>
+</form>
+<textarea form="testform"></textarea>
+<div class="space"></div>
+用户名：<input type="text" name="greeting" list="greetings" class="username" />
+<datalist id="greetings" style="display: none">
+    <option value="Good Morning">Good Morning</option>
+    <option value="Good Afternoon">Good Afternoon</option>
+    <option value="Good Evening">Good Evening</option>
+</datalist>
+<div class="space"></div>
+<!--URL地址:<input type="url" name="url1" value="123" class="username" />
+e-mail地址：<input type="email" value="">-->
+
+
+
+
+</body>
+</html>

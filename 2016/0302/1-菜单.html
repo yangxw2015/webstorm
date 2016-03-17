@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        body,div,ul,li,a{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        a{
+            display: block;
+            text-decoration: none;
+        }
+        .box{
+            margin: 50px auto;
+            width: 800px;
+        }
+        .box .list{
+            width: 250px;
+            border: solid 1px black;
+        }
+        .list1{
+            border-bottom: solid 1px black;
+        }
+        .box .list .list1>a{
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background: #c8e5bc;
+            color: white;
+        }
+        .box .list .list1 .list2{
+            background: paleturquoise;
+            display: none;
+        }
+        .box .list .list1 .block{
+            display: block;
+        }
+        .box .list .list1 .list2 li a{
+            height: 35px;
+            line-height: 35px;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul class="list">
+        <li class="list1"><a href="">衬衫</a>
+            <ul class="list2 block">
+                <li><a href="#none">短袖衬衫</a></li>
+                <li><a href="#none">长袖衬衫</a></li>
+                <li><a href="#none">短袖T恤</a></li>
+                <li><a href="#none">长袖T恤</a></li>
+            </ul>
+        </li>
+        <li class="list1"><a href="">外套</a>
+            <ul class="list2">
+                <li><a href="#none">开襟卫衣</a></li>
+                <li><a href="#none">套头卫衣</a></li>
+                <li><a href="#none">运动卫衣</a></li>
+                <li><a href="#none">童装卫衣</a></li>
+            </ul>
+        </li>
+        <li class="list1"><a href="">裤子</a>
+            <ul class="list2">
+                <li><a href="#none">短裤</a></li>
+                <li><a href="#none">休闲裤</a></li>
+                <li><a href="#none">牛仔裤</a></li>
+                <li><a href="#none">免烫卡其裤</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<input type="checkbox" name="checkbox" id="checkbox"><label for="checkbox">我已阅读以上内容</label>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+    $(".list1>a").click(function(e){
+        var ul=$(this).next();
+        if(ul.is(":visible")){
+            ul.hide(600);
+        }else{
+            ul.show(600).siblings().children(ul).hide(600);
+        }
+        e.preventDefault();
+        return false;
+    })
+
+    $(document).ready(function(){
+        var $check=$("#checkbox");
+        $check.click(function(){
+            if($check.is(":checked")){
+                alert("感谢您的操作")
+            }
+        })
+    })
+</script>
+</body>
+</html>

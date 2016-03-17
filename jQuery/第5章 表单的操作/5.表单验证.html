@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .int{
+            position: relative;
+            margin: 10px;
+            width: 300px;
+            text-align: right;
+            padding-right: 200px;
+        }
+        input{
+            outline: none;
+        }
+        .sub{
+            margin: 10px;
+            width: 300px;
+            text-align: center;
+        }
+        #send,#reset{
+            width: 50px;
+            height: 30px;
+        }
+        .red{
+            color: red;
+            position: absolute;
+            right: 185px;
+        }
+        .tips{
+            position: absolute;
+            left: 320px;
+            z-index: 11;
+        }
+        .onError{
+            color: red;
+        }
+        .onOk{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+<form>
+    <div class="int">
+        <label for="username">用户名:</label>
+        <input type="text" name="username" id="username" class="required"/>
+    </div>
+    <div class="int">
+        <label for="email">邮箱:</label>
+        <input type="text" name="username" id="email" class="required"/>
+    </div>
+    <div class="int">
+        <label for="msg">个人资料</label>
+        <input type="text" name="username" id="msg"/>
+    </div>
+    <div class="sub">
+        <input type="submit" value="提交" id="send"/>
+        <input type="submit" value="重置" id="reset"/>
+    </div>
+</form>
+<script src="../js/jquery.js"></script>
+<script>
+    $(function(){
+        $("form :input.required").each(function(){
+            var $required=$("<span class='red'>*</span>");
+            $(this).parent().append($required)
+        });
+
+        $("form :input").blur(function(){
+            var $parent=$(this).parent();
+            $parent.find(".tips").remove();
+            //验证用户名
+            if($(this).is("#username")){
+                if(this.value==""||this.value.length<6){
+                    var errorMsg="请输入至少6位用户名";
+                    $parent.append("<span class='tips onError'>"+errorMsg+"</span>")
+                }else{
+                    var okMsg="输入正确";
+                    $parent.append("<span class='tips onOk'>"+okMsg+"</span>")
+                }
+            };s
+            if($(this).is("#email")){
+                if(this.value==""||(this.value!=""&&!/.+@.+\.[a-zA-Z]{2,4}$/.test(this.value))){
+                    var errorMsg="请输入正确的E-mail地址";
+                    $parent.append("<span class='tips onError'>"+errorMsg+"</span>")
+                }else{
+                    var okMsg="输入正确";
+                    $parent.append("<span class='tips onOk'>"+okMsg+"</span>")
+                }
+            }
+        });
+        $("#send").click(function(){
+            $("form :input.required").trigger("blur");
+            var numError=$("form .onError").length;
+            console.log(numError);
+            if(numError){
+                return false;
+            }
+            alert("注册成功，密码已发到您的邮箱，请查收")
+        })
+    })
+
+</script>
+</body>
+</html>

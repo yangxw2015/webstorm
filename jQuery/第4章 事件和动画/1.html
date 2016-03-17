@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>什么事jQuery</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        h5 {
+            font-size: 18px;
+            width: 200px;
+            background: #CCCCCC;
+            cursor: pointer;
+        }
+
+        #panel {
+            margin: 20px auto;
+            width: 300px;
+            overflow: hidden;
+        }
+
+        .content {
+            display: none;
+        }
+
+        .select {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="panel">
+    <h5>什么是jQuery？</h5>
+
+    <div class="content ">
+        jquery是继Prototype之后有一个优秀的JavaScript的库，由John
+        Resing创建于2006年1月的开源项目，jQuery凭借简介的语法和跨平台的兼容性，极大地简化了开发人员遍历HTML文档、操作DOM、处理时间、执行动画和开发Ajax。它独特优雅的风格改变了JavaScript程序员的设计思路和写程序的方式。
+
+    </div>
+</div>
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script>
+    $(function () {
+
+        /*点击事件*/
+        /*$("h5").bind("click",function(){
+         var $show=$(this).next("div");
+         $show.toggleClass("select");
+         /!*if($show.is(":visible")){
+         $show.hide();
+         }else{
+         $show.show(500);
+         }*!/
+         })*/
+
+        /*鼠标移动事件*/
+        /*$("#panel").bind("mouseover", function () {
+            var $show = $(this).children("div");
+            $show.show();
+        });
+        $("#panel").bind("mouseout", function () {
+            var $show = $(this).children("div");
+            $show.hide();
+        })*/
+        /*hover事件*/
+        /*$("#panel").hover(function(){
+            var $show = $(this).children("div");
+            $show.show();
+        },function(){
+            var $show = $(this).children("div");
+            $show.hide();
+        })*/
+
+        /*toggle()*/
+        $("h5").toggle(function(){
+            $(this).next(".content").toggle();
+        },function(){
+            $(this).next(".content").toggle();
+        })
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>js checkbox全选 反选 取消全部设置表单checkbox复选框勾选</title>
+<meta name="description" content="js特效制作js checkbox复选框全选 反选 取消全部等设置多个表单里面的checkbox复选框勾选特效。内含js代码下载。" />
+
+<script type="text/javascript">
+//全选
+function selectAll(obj){
+	for(var i = 0;i<obj.elements.length;i++)
+	if(obj.elements[i].type == "checkbox")
+	obj.elements[i].checked = true;
+}
+//反选
+function selectOther(obj){
+	for(var i = 0;i<obj.elements.length;i++)
+	if(obj.elements[i].type == "checkbox" ){
+		if(!obj.elements[i].checked)
+			obj.elements[i].checked = true;
+		else
+			obj.elements[i].checked = false;
+
+	}
+}
+//取消全部
+function clearAll(obj){
+	for(var i = 0;i<obj.elements.length;i++)
+	if(obj.elements[i].type == "checkbox")
+	obj.elements[i].checked = false;
+}
+</script>
+</head>
+
+<body>
+
+<style type="text/css">
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;}
+label{cursor:pointer;}
+.demo{width:300px;margin:100px auto;}
+.demo li{height:28px;line-height:28px;}
+</style>
+
+<div class="demo">
+	<form name="check" id="" method="post">
+	<ul>
+		<li><input type="checkbox" id="choose01" /><label for="choose01">jquery图片特效</label></li>
+		<li><input type="checkbox" id="choose02" /><label for="choose02">jquery导航菜单</label></li>
+		<li><input type="checkbox" id="choose03" /><label for="choose03">jquery选项卡特效</label></li>
+		<li><input type="checkbox" id="choose04" /><label for="choose04">jquery 文字特效</label></li>
+		<li><input type="checkbox" id="choose05" /><label for="choose05">jquery表单特效</label></li>
+		<li><input type="checkbox" id="choose06" /><label for="choose06">jquery表格特效</label></li>
+		<li><input type="button" value="全选" onclick="selectAll(document.check)" /> <input type="button" value="反选" onclick="selectOther(document.check)" /> <input type="button" value="全部取消" onclick="clearAll(document.check)" /></li>
+	</ul>
+	</form>
+</div>
+
+</body>
+</html> 

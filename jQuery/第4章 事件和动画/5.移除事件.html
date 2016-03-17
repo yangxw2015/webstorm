@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #more{
+            width: 500px;
+            height: 100px;
+        }
+        .change{
+            background: green;
+        }
+        .select{
+            font-size: 25px;
+            text-align: center;
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+<button id="btn">点击我</button>
+<div id="test"></div>
+
+<button id="delAll">解除所有事件</button>
+<button id="btnDel">解除事件</button>
+<br/><br/><br/>
+
+<button id="self">自定义事件</button>
+<div id="box"></div>
+<br/><br/>
+<button id="old">.trigger("focus")</button>
+<button id="new">.triggerHandler("focus")</button><br/><br/>
+<input type="text" value="To Be Focused"/>
+
+<div id="more">绑定多个事件</div>
+<button id="click">点击</button>
+
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script>
+    $(function(){
+        /* $("#btn").bind("click",myFun1=function(){
+            $("#test").append("<p>我是绑定的函数1</p>")
+        }).bind("click",myFun2=function(){
+            $("#test").append("<p>我是绑定的函数2</p>")
+        }).bind("click",myFun3=function(){
+            $("#test").append("<p>我是绑定的函数3</p>")
+        });
+
+        $("#delAll").click(function(){
+            $("#btn").unbind();
+        })
+        $("#btnDel").click(function(){
+            $("#btn").unbind("click",myFun1).unbind("click",myFun3)
+        })*/
+
+        $("#btn").one("click",myFun1=function(){
+            $("#test").append("<p>我是绑定的函数1</p>")
+        }).one("click",myFun2=function(){
+            $("#test").append("<p>我是绑定的函数2</p>")
+        }).one("click",myFun3=function(){
+            $("#test").append("<p>我是绑定的函数3</p>")
+        });
+
+
+       /* $("#btn").bind("myClick",function(){
+            $("#box").append("<p>我的自定义事件</p>")
+        });
+        $('#btn').trigger("myClick");*/
+
+        /*传递数据*/
+        $("#btn").bind("myClick",function(event,message1,message2){
+            $("#box").append("<p>"+message1+message2+"</p>")
+        });
+        $('#btn').trigger("myClick",["我的自定义","事件"]);
+
+        /*执行默认操作*/
+        $("#old").click(function(){
+            $("input").trigger("focus");
+        })
+        $("new").click(function(){
+            $("input").triggerHandler("focus");
+        })
+        $("input").focus(function(){
+            $("<span>Focused</span>").appendTo("body").fadeOut(1000);
+        });
+
+        /*绑定多个事件*/
+        /*$("#more").bind("mouseover mouseout",function(){
+            $(this).toggleClass("change")
+        })*/
+
+        /*$("#more").bind("mouseover",function(){
+            $(this).addClass("select")
+        }).bind("mousemove",function(){
+            $(this).addClass("change")
+        }).bind("mouseout",function(){
+            $(this).removeClass();
+        })*/
+        $("#more").bind("click",function(){
+            $("body").append("<p>Click事件</p>");
+        });
+        $("#more").bind("click.plugin",function(){
+            $("body").append("<p>Click事件2</p>");
+        });
+        $("#click").bind("click",function(){
+            $("#more").trigger("click!");
+        })
+
+    })
+</script>
+</body>
+</html>

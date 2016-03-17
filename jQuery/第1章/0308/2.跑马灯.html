@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .box {
+            position: relative;
+            margin: 20px auto;
+            width: 200px;
+            height: 200px;
+            border: dashed 2px #CCCCCC;
+            overflow: hidden;
+        }
+
+        .box p {
+            position: absolute;
+            font-size: 20px;
+            line-height: 25px;
+        }
+        ul,li{
+            list-style: none;
+        }
+        ul{
+            overflow: hidden;
+        }
+        ul li{
+            line-height: 24px;
+        }
+    </style>
+
+</head>
+<body>
+<h1>JavaScript</h1>
+
+<h2>jQuery</h2>
+
+<h3>HTML5</h3>
+<h4>CSS3</h4>
+<h5>node.js</h5>
+<h6>angular js</h6>
+
+<div class="box">
+    <ul>
+        <li>赵先生--18823340987</li>
+        <li>钱先生--13345670987</li>
+        <li>孙先生--17623459876</li>
+        <li>李女士--12209876543</li>
+        <li>周女士--13487652345</li>
+        <li>吴先生--18790763452</li>
+        <li>郑先生--18823340987</li>
+        <li>王先生--13345670987</li>
+        <li>韩先生--17623459876</li>
+        <li>陈女士--12209876543</li>
+        <li>褚女士--13487652345</li>
+        <li>卫先生--18790763452</li>
+        <li>蒋先生--18823340987</li>
+        <li>沈先生--13345670987</li>
+        <li>韩先生--17623459876</li>
+        <li>杨女士--12209876543</li>
+        <li>夏女士--13487652345</li>
+        <li>刘先生--18790763452</li>
+        <li>张先生--18823340987</li>
+        <li>李先生--13345670987</li>
+        <li>王先生--17623459876</li>
+        <li>赵女士--12209876543</li>
+        <li>夏女士--13487652345</li>
+        <li>刘先生--18790763452</li>
+    </ul>
+
+</div>
+
+<script src="../../js/jquery-1.11.3.min.js"></script>
+<script>
+    $(":header").css({
+        "color": "red",
+        "height": 40,
+        "margin": 20,
+        "background": "#ccc"
+    });
+    var n = 0;
+    /*var timer = window.setInterval(function () {
+     n--;
+     console.log(n);
+     $("p").css({"top": n})
+     if (n < -200) {
+     $("p").css({"top": 0})
+
+     }
+
+     }, 30);*/
+    /*var oBox=document.getElementById("box");
+     var oUl=oBox.getElementsByTagName("ul");
+     var oList=oUl.getElementsByTagName("li");
+
+     var innerHTML=oList.innerHTML;
+     ;(function(){
+     var temp=oBox.scrollTop;
+     alert(temp);
+     if(oList.scrollTop==temp){
+     oList.innerHTML+=innerHTML;
+     }
+     window.setTimeout(arguments.callee,50)
+     })()*/
+    (function ($) {
+        $.fn.myScroll = function (options) {
+            var defaults = {
+                speed: 40,
+                rowHeight: 24,//每行的高度
+            }
+            var opts = $.extend({}, defaults, options), intId = [];
+
+            function marquee(obj, step) {
+                obj.find("ul").animate({marginTop: '-=1'}, 0, function () {
+                    var s = Math.abs(parseInt($(this).css("margin-top")));
+                    if (s > step) {
+                        $(this).find("li").slice(0, 1).appendTo($(this));
+                        $(this).css("marginTop", 0);
+                    }
+                });
+            }
+
+            this.each(function (i) {
+                var sh = opts["rowHeight"], speed = opts["speed"], _this = $(this);
+                intId[i] = setInterval(function () {
+                    if (_this.find("ul").height() <= _this.height()) {
+                        clearInterval(intId[i]);
+                    }else{
+                        marquee(_this,sh);
+                    }
+                    console.log(_this.find("ul").height())
+                },speed);
+            })
+        }
+
+    })(jQuery)
+    $(".box").myScroll({
+        speed: 40,
+        rowHeight: 24
+    })
+
+
+</script>
+</body>
+</html>

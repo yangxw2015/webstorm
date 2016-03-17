@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="checkbox" name="check" id="cr"/><label for="cr">我已阅读上面制度</label>
+<script src="../../js/jquery-1.11.3.min.js"></script>
+<script>
+    $(document).ready(function(){
+        var $cr=$("#cr");
+        var cr=$cr[0];
+        $cr.click(function(){
+            if(cr.checked){
+                alert("感谢您的支持")
+            }
+        })
+    })
+
+</script>
+</body>
+</html>

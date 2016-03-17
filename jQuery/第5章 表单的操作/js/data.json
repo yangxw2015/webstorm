@@ -1,0 +1,15 @@
+[
+  {"name":"张三","sex":1,"age":25,"score":60},
+  {"name":"李四","sex":0,"age":40,"score":20},
+  {"name":"王五","sex":1,"age":76,"score":75},
+  {"name":"小明","sex":1,"age":32,"score":63},
+  {"name":"小东","sex":1,"age":15,"score":24},
+  {"name":"孙悟空","sex":0,"age":80,"score":66},
+  {"name":"猪八戒","sex":0,"age":63,"score":90},
+  {"name":"唐僧","sex":1,"age":23,"score":27},
+  {"name":"沙僧","sex":0,"age":65,"score":45},
+  {"name":"观音","sex":1,"age":39,"score":67},
+  {"name":"如来","sex":0,"age":23,"score":44},
+  {"name":"玉帝","sex":1,"age":41,"score":78},
+  {"name":"老君","sex":1,"age":27,"score":100}
+]

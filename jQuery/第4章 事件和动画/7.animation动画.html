@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        #panle{
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 150px;
+            height: 150px;
+            background: #CCCCCC;
+            border-radius: 50%;
+        }
+        .box{
+            position: relative;
+            margin: 0 auto;
+            width: 500px;
+            height: 300px;
+            border: solid 1px #CCCCCC;
+            overflow: hidden;
+        }
+        ul{
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 300px;
+            font-size: 0;
+            width: 2500px;
+        }
+        ul li{
+            display: inline-block;
+            width: 500px;
+            height: 300px;
+            font-size: 60px;
+            color: white;
+            line-height: 300px;
+            text-align: center;
+        }
+        ul li:nth-child(1){
+            background: red;
+        }
+        ul li:nth-child(2){
+            background: orange;
+        }
+        ul li:nth-child(3){
+            background: yellow;
+        }
+        ul li:nth-child(4){
+            background: blue;
+        }
+        ul li:nth-child(5){
+            background: purple;
+        }
+        .btn{
+            position: absolute;
+            top: 50%;
+            margin-top: -15px;
+            width: 30px;
+            height: 30px;
+            border-top: solid 3px white;
+            border-right: solid 3px white;
+            cursor: pointer;
+        }
+        #btnLeft{
+            left: 5px;
+            transform: rotate(-135deg);
+        }
+        #btnRight{
+            right: 5px;
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body>
+<div id="panle"></div>
+<div class="box">
+    <ul>
+        <li>一</li>
+        <li>二</li>
+        <li>三</li>
+        <li>四</li>
+        <li>五</li>
+    </ul>
+    <div id="btnLeft" class="btn"></div>
+    <div id="btnRight" class="btn"></div>
+</div>
+
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script>
+    $(function(){
+        $("#panle").click(function(){
+            $(this).animate({
+                left:"+=1000px",
+                top:"+=300px"
+            },1000).animate({
+                height:"200px",
+                width:"200px"
+            },1000)
+        })
+    })
+</script>
+</body>
+</html>

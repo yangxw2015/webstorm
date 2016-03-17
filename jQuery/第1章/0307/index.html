@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        span{
+            display: none;
+        }
+        ul,li{
+            list-style: none;
+        }
+        .box{
+            margin: 20px auto;
+            width: 500px;
+        }
+        .select{
+            display: block;
+            height: 35px;
+            line-height: 35px;
+        }
+        h2{
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul class="outer">
+        <li>
+            <h2>第二章</h2>
+            <span>jQuery选择器</span>
+            <span>jQuery的优势</span>
+            <span>选择器的注意事项</span>
+            <span>小结</span>
+        </li>
+        <li>
+            <h2>第二章</h2>
+            <span>jQuery选择器</span>
+            <span>jQuery的优势</span>
+            <span>选择器的注意事项</span>
+            <span>小结</span>
+        </li>
+        <li>
+            <h2>第三章</h2>
+            <span>DOM的操作</span>
+            <span>DOM的操作分类</span>
+            <span>案例研究</span>
+            <span>提示效果</span>
+        </li>
+    </ul>
+</div>
+<script src="../../js/jquery-1.11.3.min.js"></script>
+<script>
+    $("li").click(function(){
+        $(this).children("span").addClass("select").end().siblings().children("span").removeClass("select");
+    })
+</script>
+</body>
+</html>

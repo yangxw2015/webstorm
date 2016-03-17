@@ -1,0 +1,77 @@
+html,body,div,ul,li,p,img{
+    margin: 0;
+    padding: 0;
+    font-family: "\5b8b\4f53", "Arial Narrow";
+    font-size: 14px;
+}
+ul,li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+img{
+    display: block;
+}
+.box{
+    margin: 20px auto;
+    width: 700px;
+}
+.title,.box .smallImg li:hover p,.box .smallImg li.select,.box .smallImg li p.select{
+    color: white;
+}
+.title{
+    padding-left: 15px;
+    font-size: 18px;
+    line-height: 30px;
+    background: chartreuse;
+}
+.box .smallImg{
+    padding: 20px 0 0 0;
+    font-size: 0;
+    overflow: hidden;
+    background: #DDF9F8;
+    background: -webkit-linear-gradient(top,#DDF9F8,#fcf0b5,greenyellow);
+    background: -moz-linear-gradient(top,#DDF9F8,#fcf0b5,greenyellow);
+    background: -o-linear-gradient(top,#DDF9F8,#fcf0b5,greenyellow);
+    background: -ms-linear-gradient(top,#DDF9F8,#fcf0b5,greenyellow);
+    background: linear-gradient(top,#DDF9F8,#fcf0b5,greenyellow);
+}
+.box .smallImg li{
+    float: left;
+    margin:0 0 20px 23px;
+    cursor: pointer;
+    background: white;
+}
+/*.box .smallImg li:hover{
+    transition: 1s;
+    -webkit-transition: 1s;
+    transform: rotateY(360deg);
+}*/
+.box .smallImg li:nth-child(odd):hover{
+    transition: 1.5s;
+    -webkit-transition: 1.5s;
+    transform: rotateY(360deg);
+}
+.box .smallImg li:nth-child(even):hover{
+    transition: 1.5s;
+    -webkit-transition: 1.5s;
+    transform: rotateX(360deg);
+    -webkit-transform: rotateX(360deg);
+}
+.box .smallImg li p{
+    height: 25px;
+    line-height: 25px;
+    color: #999999;
+    text-align: center;
+}
+.box .smallImg li:hover p,.box .smallImg li.select{
+    background: #CCCCCC;;
+}
+.box .bigImg li{
+    display: none;
+}
+.box .bigImg li.select{
+    display: block;
+}
+

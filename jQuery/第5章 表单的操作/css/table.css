@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.box{
+    margin: 20px auto;
+    width: 500px;
+    font-size: 18px;
+}
+table{
+    text-align: center;
+
+}
+thead th{
+    width: 75px;
+    height: 35px;
+    border-bottom: solid 2px black;
+}
+tbody tr td{
+    height: 30px;
+}
+.event{
+    background:#bce8f1;
+}
+.odd{
+    background: #f2dede;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>图片跟随</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .box {
+            margin: 20px auto;
+            width: 1000px;
+        }
+
+        ul {
+            overflow: hidden;
+        }
+
+        ul li {
+            float: left;
+            margin-right: 20px;
+        }
+
+        #images {
+            position: absolute;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul>
+        <li><a href=""><img src="images/apple_1.jpg" alt=""/></a></li>
+        <li><a href=""><img src="images/apple_2.jpg" alt=""/></a></li>
+        <li><a href=""><img src="images/apple_3.jpg" alt=""/></a></li>
+        <li><a href=""><img src="images/apple_4.jpg" alt=""/></a></li>
+    </ul>
+</div>
+
+
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script>
+    $(function () {
+        var x = 10, y = 20;
+        //var $src = $("img").attr("src").substring(0, 14);
+        //var $str = $src + "_bigger.jpg";
+
+        $("a").mouseover(function (e) {
+            var $src=$(this).children("img").attr("src").substring(0, 14);
+            var $str = $src + "_bigger.jpg";
+            var $tooltip = $("<div id='images'><img src='" + $str + "' /></div>");
+            $tooltip.appendTo("body");
+            $("#images").css({
+                "top": (e.pageY + y) + "px",
+                "left": (e.pageX + x) + "px"
+            }).show(800)
+        }).mouseout(function () {
+            $("#images").remove();
+        }).mousemove(function (e) {
+            $("#images").css({
+                "top": (e.pageY + y) + "px",
+                "left": (e.pageX + x) + "px"
+            })
+        });
+
+    })
+
+
+</script>
+</body>
+</html>

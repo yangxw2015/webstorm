@@ -1,0 +1,46 @@
+*{
+    margin:0;
+    padding: 0;
+}
+.box{
+    margin: 20px auto;
+    width: 800px;
+}
+.table{
+    border: solid 1px black;
+    text-align: center;
+    border-bottom: none;
+}
+.table thead{
+    height: 35px;
+    line-height: 35px;
+    background: #666;
+    color: white;
+    border-bottom: solid 1px black;
+}
+.table td{
+    border-bottom: solid 1px black;
+}
+.table td:nth-child(1){
+    width: 50px;
+    border-right: solid 1px black;
+}
+.table td:nth-child(2){
+    width: 300px;
+}
+.table tbody tr{
+    height: 30px;
+}
+button{
+    height: 30px;
+    width: 60px;
+    margin: 20px 0;
+}
+
+tbody input{
+    width: 200px;
+    height: 30px;
+    border: none;
+    font-size: 18px;
+    outline: none;
+}

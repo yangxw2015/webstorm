@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form>
+    你爱好的运动是?<br>
+    <input type="checkbox" name="items" value="足球"/>足球
+    <input type="checkbox" name="items" value="篮球"/>篮球
+    <input type="checkbox" name="items" value="羽毛球"/>羽毛球
+    <input type="checkbox" name="items" value="乒乓球"/>乒乓球<br/><br/>
+    <input type="checkbox"  id="checkAll"/>全选/全不选
+    <input type="button" value="提 交" id="send"/>
+
+</form>
+<script src="../js/jquery.js"></script>
+<script>
+    $(function(){
+        //全选或全不选
+        $("#checkAll").click(function(){
+            //所有checkbox跟着全选的checkbox走。
+            $('[name=items]:checkbox').attr("checked", this.checked );
+        });
+        $("[name=items]:checkbox").click(function(){
+            var $tmp=$("[name=items]:checkbox");
+            $("#checkAll").attr("checked",$tmp.length==$tmp.filter(":checked").length);
+        })
+        $("#send").click(function(){
+            var str="你选中的是：\r\n";
+            $("[name=items]:checkbox:checked").each(function(){
+                str+=$(this).val()+"\r\n";
+            })
+            alert(str);
+        })
+
+    })
+
+
+</script>
+</body>
+</html>

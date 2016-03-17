@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+ul,li{
+    list-style: none;
+}
+.box{
+    position: relative;
+    margin: 50px auto;
+    width: 1000px;
+    height: 400px;
+}
+.box ul{
+    overflow: hidden;
+}
+.box ul li{
+    float: left;
+    margin-right: 25px;
+    width: 100px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    border: #000000 solid 1px;
+    cursor: pointer;
+}
+.box .content{
+    display: none;
+    width: 500px;
+    height: 350px;
+    border: #000000 solid 1px;
+}
+.box ul li.select{
+    background: #333333;
+}
+.box .content.selected{
+    display: block;
+}

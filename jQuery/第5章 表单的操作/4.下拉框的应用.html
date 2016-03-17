@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 500px;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+        .centent{
+            float: left;
+            margin-right: 25px;
+        }
+        select{
+            width: 100px;
+            height: 150px;
+            outline: none;
+        }
+        select option{
+            padding: 3px 0;
+            height: 20px;
+        }
+        button{
+            width: 100px;
+            height: 30px;
+            margin-top: 20px;
+            cursor: pointer;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="centent">
+        <select multiple="multiple" id="select1">
+            <option value="1">选项1</option>
+            <option value="2">选项2</option>
+            <option value="3">选项3</option>
+            <option value="4">选项4</option>
+            <option value="5">选项5</option>
+            <option value="6">选项6</option>
+            <option value="7">选项7</option>
+            <option value="8">选项8</option>
+            <option value="9">选项9</option>
+            <option value="10">选项10</option>
+        </select><br>
+        <button id="addRight">选中添加到右边</button><br>
+        <button id="addRightAll">全部添加到右边</button>
+    </div>
+    <div class="centent">
+        <select multiple id="select2"></select><br/>
+        <button id="addLeft">选中添加到左边</button><br>
+        <button id="addLeftAll">全部添加到左边</button>
+    </div>
+</div>
+<script src="../js/jquery.js"></script>
+<script>
+    $(function(){
+        //全部添加到右边
+        $("#addRightAll").click(function(){
+            $(this).siblings().children("option").appendTo("#select2");
+        });
+        //选中添加到右边
+        $("#addRight").click(function(){
+            $(this).siblings().children("option:selected").appendTo("#select2");
+        });
+        //全部添加到左边
+        $("#addLeftAll").click(function(){
+            $(this).siblings().children("option").appendTo("#select1");
+        });
+        //选中添加到左边
+        $("#addLeft").click(function(){
+            $(this).siblings().children("option:selected").appendTo("#select1");
+        });
+        $("#select1").dblclick(function(){
+            var $options=$("option:selected",this);
+            $options.appendTo("#select2");
+        });
+        $("#select2").dblclick(function(){
+            var $options=$("option:selected",this);
+            $options.appendTo("#select1");
+        });
+
+    })
+
+
+
+</script>
+</body>
+</html>

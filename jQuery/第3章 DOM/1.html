@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .main{
+            width: 1000px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+<div class="main">
+    <h2>你喜欢的水果是？</h2>
+    <ul>
+        <li>苹果</li>
+        <li>橘子</li>
+        <li>梨</li>
+    </ul>
+    <input type="checkbox" id="apple"/><label for="apple">苹果</label><br/>
+    <input type="checkbox" id="origin"/><label for="origin">橘子</label><br />
+    <input type="checkbox" id="pear"/><label for="pear">梨</label><br />
+</div>
+
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script>
+    /*$("input").click(function(){
+        var $fruits=$(this).next("label").text();
+        alert( "你喜欢的水果是"+$fruits);
+    })*/
+    var $li1=$("<li>香蕉</li>");
+    var $li2=$("<li>桃</li>");
+    $("ul").append($li1);
+    $("ul").append($li2);
+    $("li").wrap("<b></b>")
+    $("li:first").attr("title","苹果")
+    $("li:first").attr("title","最喜欢的水果是苹果")
+
+</script>
+</body>
+</html>

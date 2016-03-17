@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form action="2事件冒泡.html">
+    用户名：<input type="text" name="username" id="username"/><br />
+    密码：<input type="password" name="password" id="password"/><br />
+    <input type="button" name="button" id="button" value="登录" />
+</form>
+<div id="msg"></div>
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script>
+    $(function(){
+        $("#button").bind("click",function(event){
+            var $username=$("#username").val();
+            if($username==""){
+                $("#msg").html("<p>文本框的值不能为空</p>");
+                //event.preventDefault();
+            }
+        })
+    })
+</script>
+</body>
+</html>

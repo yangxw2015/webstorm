@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>切换样式</title>
+    <style type="text/css">
+        .myclass{
+            font-size: 20px;
+            margin: 20px;
+            color: red;
+            font-weight: bold;
+            background: yellow;
+        }
+        .another{
+            font-size: 25px;
+            margin: 30px;
+            color: blue;
+        }
+
+    </style>
+</head>
+<body>
+<button>切换样式</button>
+<p class="myclass"><a href="">你最喜欢的水果是</a></p>
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script>
+    $("button").click(function(){
+        $("p").toggleClass("another");
+        /*var has=$("p").is(".another");
+        var has=$("p").is(".another");
+        alert(has)*/
+    })
+    //var p_html=$("p").html();
+    /*var p_html=$("p").text();
+    alert(p_html)*/
+
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>val</title>
+</head>
+<body>
+<input type="text" id="username" value="请输入用户名"/><br />
+<input type="password" id="password" value="请输入密码"/><br />
+<input type="button" value="登录" >
+
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script>
+    $("#username").focus(function(){
+        var textValue=$(this).val();
+        if(textValue=="请输入用户名"){
+            $(this).val("");
+        }
+    });
+    $("#username").blur(function(){
+        var textValue=$(this).val();
+        if(textValue==""){
+            $(this).val("请输入用户名");
+        }
+    })
+
+
+</script>
+
+</body>
+</html>

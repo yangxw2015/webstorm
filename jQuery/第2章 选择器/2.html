@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .content{
+            margin: 20px auto;
+            width: 1000px;
+        }
+        .camera{
+            width: 300px;
+            overflow: hidden;
+        }
+        .camera li{
+            float: left;
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 20px;
+        }
+        .show{
+            margin: 10px 100px;
+            width: 100px;
+            height: 25px;
+        }
+        .select{
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <form action="">
+        <input type="text" disabled="disabled" value="文本不可用"/>
+        <input type="text" value="文本可用"/>
+        <input type="submit" value="提交">
+        <textarea></textarea>
+        <button>确认</button>
+
+
+    </form>
+    <ul class="camera">
+        <li><a href="">佳能</a></li>
+        <li><a href="">索尼</a></li>
+        <li><a href="">尼康</a></li>
+        <li><a href="">三星</a></li>
+        <li><a href="">松下</a></li>
+        <li><a href="">卡西欧</a></li>
+        <li><a href="">富士</a></li>
+        <li><a href="">柯达</a></li>
+        <li><a href="">宾得</a></li>
+        <li><a href="">理光</a></li>
+        <li><a href="">奥林巴斯</a></li>
+        <li><a href="">明基</a></li>
+        <li><a href="">爱国者</a></li>
+        <li><a href="">苹果</a></li>
+        <li><a href="">其他品牌</a></li>
+    </ul>
+    <button class="show">显示全部品牌</button>
+</div>
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script>
+    /*var $form=$("form input").length;
+    var $form1=$("form :input").length;
+    console.log($form);
+    console.log($form1);*/
+    var $category=$("ul li:gt(5):not(:last)");
+    $category.hide();
+    $(".show").click(function(){
+        if($category.is(":visible")){
+            $category.hide();
+            $(this).text("显示全部品牌");
+            $("ul li").filter(":contains('佳能')").removeClass("select");
+        }else{
+            $category.show();
+            $("ul li").filter(":contains('佳能')").addClass("select");
+            $(this).text("显示精简品牌");
+        }
+    })
+
+
+</script>
+</body>
+</html>

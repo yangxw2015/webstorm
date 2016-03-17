@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .block{
+            position: absolute;
+            width: 20px;
+            height: 10px;
+            background: black;
+        }
+    </style>
+</head>
+<body>
+<button id="go"> Run</button>
+<div id="block">Hello!</div>
+
+<button id="left">«</button> <button id="right">»</button>
+<div class="block"></div>
+
+<script src="../../js/jquery-1.11.3.min.js"></script>
+<script>
+
+    // 在一个动画中同时应用三种类型的效果
+    /*$("#go").click(function(){
+        $("#block").animate({
+            width: "90%",
+            height: "100%",
+            fontSize: "10em",
+            borderWidth: 10
+        }, 1000 );
+    });*/
+    $("#right").click(function(){
+        $(".block").animate({left: '+50px'}, "slow");
+    });
+
+    $("#left").click(function(){
+        $(".block").animate({left: '-50px'}, "slow");
+    });
+</script>
+</body>
+</html>

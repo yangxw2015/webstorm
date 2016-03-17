@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/9.css"/>
+</head>
+<body>
+<div class="box">
+    <div class="top">
+        <p class="video">动漫视频</p>
+        <ul class="point">
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <button id="btnLeft"> &lt; </button>
+        <button id="btnRight"> &gt; </button>
+    </div>
+    <div class="content">
+        <ul class="images">
+            <li><img src="images/1.jpg" alt=""/></li>
+            <li><img src="images/2.jpg" alt=""/></li>
+            <li><img src="images/3.jpg" alt=""/></li>
+            <li><img src="images/4.jpg" alt=""/></li>
+        </ul>
+        <ul class="images">
+            <li><img src="images/5.jpg" alt=""/></li>
+            <li><img src="images/4.jpg" alt=""/></li>
+            <li><img src="images/1.jpg" alt=""/></li>
+            <li><img src="images/2.jpg" alt=""/></li>
+        </ul>
+        <ul class="images">
+            <li><img src="images/2.jpg" alt=""/></li>
+            <li><img src="images/5.jpg" alt=""/></li>
+            <li><img src="images/4.jpg" alt=""/></li>
+            <li><img src="images/1.jpg" alt=""/></li>
+        </ul>
+    </div>
+</div>
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script>
+    $(function(){
+        var size=$(".images").length;
+        console.log(size);
+        var i=0;
+        $(".point li").mouseover(function(){
+            $(this).addClass("select").siblings().removeClass("select");
+            var index=$(this).index();
+            i=size;
+            $(".images").eq(index).stop().show().siblings().stop().hide();
+        });
+
+        $(".point li:nth-child(1)").addClass("select").siblings().removeClass("select");
+        function moveRight(){
+            i++;
+            if(i==size){
+                i=0
+            }
+            $(".point li").eq(i).addClass("select").siblings().removeClass("select");
+            $(".images").eq(i).show().siblings().hide();
+        }
+        function moveLeft(){
+            i--;
+            if(i==-1){
+                i=size-1;
+            }
+            $(".point li").eq(i).addClass("select").siblings().removeClass("select");
+            $(".images").eq(i).show().siblings().hide();
+        }
+
+        $("#btnRight").click(function(){
+            moveRight();
+        });
+        $("#btnLeft").click(function(){
+            moveLeft();
+        })
+
+
+    })
+
+</script>
+</body>
+</html>

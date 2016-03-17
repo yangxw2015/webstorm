@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .animate{
+            position: absolute;
+            left: 0;
+            top: 400px;
+            width: 100px;
+            height: 100px;
+            background: red;
+            border-radius: 50%;
+        }
+        button{
+            width: 100px;
+            height: 25px;
+        }
+        .hiden{
+            float: left;
+            margin: 10px;
+            width: 50px;
+            height: 50px;
+            background: black;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul>
+        <li>赵先生--18823340987</li>
+        <li>钱先生--13345670987</li>
+        <li class="three">孙先生--17623459876</li>
+        <li>李女士--12209876543</li>
+        <li>周女士--13487652345</li>
+        <li>吴先生--18790763452</li>
+        <li>郑先生--18823340987</li>
+        <li>王先生--13345670987</li>
+        <li>冯先生--17623459876</li>
+        <li>陈女士--12209876543</li>
+        <li>褚女士--13487652345</li>
+        <li>卫先生--18790763452</li>
+        <li>蒋先生--18823340987</li>
+        <li>沈先生--13345670987</li>
+        <li>韩先生--17623459876</li>
+        <li>杨女士--12209876543</li>
+    </ul>
+</div>
+<button id="run">RUN</button>
+<p class="animate"></p>
+<button id="show">显示</button>
+<div class="hiden"></div>
+<div class="hiden"></div>
+<div class="hiden"></div>
+
+
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script>
+    $("li:first").css(
+            "color", "red"
+    );
+    $("li:last").css("font-size", "24px");
+    $("li:eq(1)").css("background","#ccc");
+    $("li:even").css("marginLeft","400px");
+    $("#run").click(function(){
+        $("p:not(:animated)").animate({left:"+=1000"},1000)
+    })
+    $("div:hidden").show(3000);
+    $("#show").click(function(){
+        $(this)
+    })
+</script>
+</body>
+</html>

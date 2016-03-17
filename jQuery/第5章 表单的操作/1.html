@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        input:focus,textarea:focus{
+            border:solid 1px black;
+            background: #ffcccc;
+        }
+
+    </style>
+</head>
+<body>
+<form action="#" method="post" id="regForm">
+    <fieldset>
+        <legend>个人基本信息</legend>
+        <div>
+            <label for="username">名称</label><input type="text" id="username" maxlength="5"/>
+        </div>
+        <br/>
+        <div>
+            <label for="pass">密码</label><input type="password" name="" id="pass"/>
+        </div>
+        <br/>
+        <div>
+            <label for="msg">详细信息</label><textarea id="msg"></textarea>
+        </div>
+    </fieldset>
+</form>
+
+<script src="../js/jquery-1.11.3.min.js"></script>
+</body>
+</html>

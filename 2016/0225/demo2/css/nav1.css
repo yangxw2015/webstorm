@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+}
+ul,li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+.nav{
+    margin: 100px 0;
+    background: #969696;
+}
+.list{
+    margin: 0 auto;
+    width: 1000px;
+    height: 40px;
+    overflow: hidden;
+}
+.list li{
+    float: left;
+}
+.list li>a{
+    padding: 30px;
+    line-height: 40px;
+}
+.down{
+    display: none;
+}
